@@ -1,0 +1,43 @@
+{
+  "name": "pure",
+  "version": "1.0.0",
+  "description": "video",
+  "author": "caoyao",
+  "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "3014"
+    }
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "NODE_ENV=production  BASE_URL=http://healthy-life-now.net nuxt build ",
+    "start": "NODE_ENV=production BASE_URL=http://healthy-life-now.net nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.5",
+    "jquery": "^3.3.1",
+    "js-base64": "^2.4.9",
+    "less": "^3.8.0",
+    "less-loader": "^4.1.0",
+    "nuxt": "^1.0.0",
+    "vue-i18n": "^8.0.0",
+    "vue-video-player": "^5.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-nested": "^3.0.0",
+    "postcss-responsive-type": "^1.0.0"
+  }
+}

@@ -1,0 +1,38 @@
+version: "3"
+services:
+  taichi:
+    image: 'caocaocao/web'
+    container_name: taichi
+    working_dir: /app/
+    volumes:
+      - "./dist:/app/dist"
+      - ./:/app/taichi
+      - ./deploy_auto.sh:/app/deploy_auto.sh
+    command:
+      - /bin/sh
+      - -c
+      - |
+        sh deploy_auto.sh
+        tail -f /dev/null
+
+    restart: always
+    environment:
+      - WEB_BRANCH=dev
+      - WEB_PRODORDEV=dev
+      - HOST=0.0.0.0
+      - WEB_PROJECT_NAME=taichi
+      - WEB_NEED_NPM_REGISTRY=true
+      # - WEB_NODE_MODULES_IS_CHANGE=true
+    ports:
+      - "3014:3014"
+
+  # tracker-front-depend:
+  #   image: 'caocaocao/tracker_depend'
+  #   container_name: tracker_depend
+  #   working_dir: /app/
+  #   restart: always
+  #   command:
+  #     - /bin/sh
+  #     - -c
+  #     - |
+  #       tail -f /dev/null
