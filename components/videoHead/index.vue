@@ -12,7 +12,7 @@
                     <img
                         src="../../static/img/logo.png"
                         @click="goHome"
-                        class="cursor head_img"
+                        class="cursor head_img padding_left_1"
                         alt
                     />
                     <div class="display_flex flex_align_center classfication_pc">
@@ -24,17 +24,16 @@
                                                     </span>
                         </div>-->
                         <div
-                            v-if="op!='ib'"
                             class="cate_div"
                             @mouseover="orderselect('to_cate')"
-                            @click="toCate()"
+                            @click="goHome"
                             @mouseleave="selectOrder=''"
                         >
                             <div
                                 class="hover_cate_back cataback"
                                 :class="{hover_cate_back_select:selectOrder=='to_cate'}"
                             ></div>
-                            <span class="pcs">{{$t('words.categories')}}</span>
+                            <span class="pcs">{{$t('words.home')}}</span>
                         </div>
                         <div
                             class="cate_div"
