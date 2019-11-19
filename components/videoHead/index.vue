@@ -87,15 +87,11 @@
                     class="margin_top_1"
                 ></video-button>
                 <video-button
-                    :button-text="$t('words.benefits_of_yoga')"
+                    :button-text="$t('words.benefits_of_martia_arts')"
                     @click.native="Introduction('/intro?type=yoga')"
                     class="margin_top_1"
                 ></video-button>
-                <video-button
-                    :button-text="$t('words.benefits_of_fitness')"
-                    @click.native="Introduction('/intro?type=fitness')"
-                    class="margin_top_1"
-                ></video-button>
+                
                 <video-button
                     v-if="show_login_button"
                     :button-text="$t('words.login')"
@@ -188,12 +184,6 @@ export default {
         },
         diffrentOp() {
             switch (this.op) {
-                case "tw":
-                    (() => {
-                        this.show_login_button = !localStorage.video_token;
-                        this.show_unlogin_button = localStorage.video_token;
-                    })();
-                    break;
                 default:
                     (() => {
                         this.show_login_button = false;

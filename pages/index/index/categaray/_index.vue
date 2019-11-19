@@ -41,7 +41,7 @@
     import pcOrPhone from "../../../../util/get_pc_or_phone";
     import getLang from "../../../../util/get_lang";
     import videoFooter from "../../../../components/footer";
-    import get_banner from "../../../../util/get_banner";
+    import getTag from "../../../../util/get_tags";
     import getCurrentApp from "../../../../util/get_current_app";
 
     export default {
@@ -112,8 +112,8 @@
                 this.getList();
             },
             initBanner() {
-                var current = get_banner(this.arr);
-                this.arr = current.tags;
+                var current = getTag(this.arr);
+                this.arr = current;
             },
             getList1() {
                 this.fullscreenLoading = true;
