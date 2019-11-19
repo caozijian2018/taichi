@@ -1,4 +1,4 @@
 git pull
 npm install 
 npm run build
-pm2 restart healthy_life_now
+pm2 restart taichi
