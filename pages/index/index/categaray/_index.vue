@@ -1,5 +1,14 @@
 <template>
     <div class="taglist_box" v-loading.fullscreen.lock="fullscreenLoading">
+        <div class="full_screen black" style="background:black" v-if="!is_mounted">
+            <img
+                src="../../../../static/img/loading.gif"
+                class="position_absolute pcs"
+                style="width:300px"
+                alt=""
+                srcset=""
+            />
+        </div>
         <div>
             <div class="width_100 photntsback" :class="{top0: isScrollBottom}">
                 <div class="phtonsbase overflow_scroll nscrol" id="sdcss">
@@ -52,7 +61,8 @@
                 category: '',
                 page_: 1,
                 tag_id: "",
-                total: 0
+                total: 0,
+                is_mounted: false
             } 
         },
         props:{
@@ -125,9 +135,9 @@
                 this.fullscreenLoading = true;
                 var pg = this.page_
                 this.$http("dcb/album/", "get", {
-                    tags: this.arr[this.INDEX].original_name,
+                    tags: this.arr[this.INDEX].original_name +"|"+"Tai Chi Video",
                     page: this.page_,
-                    category: this.category,
+                    category: this.category ,
                     capacity: 12,
                     ordering: '-show_cnt',
                     lang: this.country
@@ -139,6 +149,7 @@
                     this.total = res.count;
                     this.page_ = this.$store.getters.getCatePage
                     document.querySelector('.scroll_box').scrollTop="0";
+                    this.is_mounted = true;
                 })
             }
         }

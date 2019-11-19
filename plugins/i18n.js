@@ -6,19 +6,19 @@ export default ({ app, store }) => {
     locale: store.state.locale,
     fallbackLocale: 'en',
     messages: {
-      'en':require('~/locales/en.json'),
-      'ar':require('~/locales/ar.json'),
-      'es':require('~/locales/es.json'),
-      'nl':require('~/locales/nl.json'),
-      'pt':require('~/locales/pt.json'),
-      'at':require('~/locales/de.json'),
-      'ch':require('~/locales/de.json'),
-      'de':require('~/locales/de.json'),
-      'bl':require('~/locales/bl.json'),
-      'bn':require('~/locales/bn.json'),
-      'fr':require('~/locales/fr.json'),
-      'it':require('~/locales/it.json'),
-      'zh-tw':require('~/locales/tw.json')
+      'en':require('../components/locales/en.json'),
+      'ar':require('../components/locales/ar.json'),
+      'es':require('../components/locales/es.json'),
+      'nl':require('../components/locales/nl.json'),
+      'pt':require('../components/locales/pt.json'),
+      'at':require('../components/locales/de.json'),
+      'ch':require('../components/locales/de.json'),
+      'de':require('../components/locales/de.json'),
+      'bl':require('../components/locales/bl.json'),
+      'bn':require('../components/locales/bn.json'),
+      'fr':require('../components/locales/fr.json'),
+      'it':require('../components/locales/it.json'),
+      'zh-tw':require('../components/locales/tw.json')
     }
   })
   app.i18n.path = (link) => {
