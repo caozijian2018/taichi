@@ -24,7 +24,7 @@ services:
       - WEB_NEED_NPM_REGISTRY=true
       # - WEB_NODE_MODULES_IS_CHANGE=true
     ports:
-      - "3014:3014"
+      - "3026:3026"
 
   # tracker-front-depend:
   #   image: 'caocaocao/tracker_depend'
