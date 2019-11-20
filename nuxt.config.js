@@ -21,8 +21,8 @@ module.exports = {
  env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3026',
     API_URL: API_URL,
-    WTAT_THIS_APP:"healthy-life-now",
-    WTAT_THIS_FILE_PREFIX: "http://assets.healthy-life-now.net/",
+    WTAT_THIS_APP:"taichi-lifestyle",
+    WTAT_THIS_FILE_PREFIX: "http://assets.taichi-lifestyle.com/",
 
   },
   head: {

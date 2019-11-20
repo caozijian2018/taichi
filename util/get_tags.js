@@ -9,7 +9,6 @@ export default (arr)=>{
         if (v.name == currentapp || v.name == "healthy-life-now"){
             if(v.name == "healthy-life-now"){
                 for(var healthy_tag of v.tags){
-                    var ss = healthy_tag;
                     if(show_other_tag.indexOf(healthy_tag.original_name) > -1){
                         tags.push(healthy_tag)
                     }

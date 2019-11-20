@@ -135,7 +135,7 @@
                 this.fullscreenLoading = true;
                 var pg = this.page_
                 this.$http("dcb/album/", "get", {
-                    tags: this.arr[this.INDEX].original_name +"|"+"Tai Chi Video",
+                    tags: this.arr[this.INDEX].original_name,
                     page: this.page_,
                     category: this.category ,
                     capacity: 12,
