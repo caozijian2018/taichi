@@ -12,8 +12,8 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "build": "NODE_ENV=production  BASE_URL=http://healthy-life-now.net nuxt build ",
-    "start": "NODE_ENV=production BASE_URL=http://healthy-life-now.net nuxt start",
+    "build": "NODE_ENV=production  BASE_URL=http://taichi-lifestyle.com nuxt build ",
+    "start": "NODE_ENV=production BASE_URL=http://taichi-lifestyle.com nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"

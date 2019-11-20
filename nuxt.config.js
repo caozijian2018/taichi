@@ -49,7 +49,7 @@ module.exports = {
  ],
  proxy: {
   '/backend': {
-    target: 'http://healthy-life-now.net',
+    target: 'http://taichi-lifestyle.com',
     pathRewrite: {
         '^/backend': '/backend'
     }
