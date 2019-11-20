@@ -139,7 +139,7 @@
                     page: this.page_,
                     category: this.category ,
                     capacity: 12,
-                    ordering: '-show_cnt',
+                    ordering: '-create_time',
                     lang: this.country
                 }).then(res => {
                     this.fullscreenLoading = false;
