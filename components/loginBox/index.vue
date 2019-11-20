@@ -4,15 +4,8 @@
             <i class="iconfont icon-chacha white cancelLogin position_absolute cursor" @click="close"></i>
             <div class="width_65 margin_auto">
                 <div class="display_block margin_bottom_1 font_size_20 text_center white"> {{ login_state == "login" ? $t("words.login") : login_state=="input_password" ? $t('words.input_password') : $t('words.change_password')}}</div>
-                <div class="" v-if="login_state=='login'">
+                <div class="">
                     <el-input :clearable="true" v-model="phone" class="login width_100" :placeholder="$t('words.phone_number')"></el-input>
-                </div>
-                <div v-else-if="login_state=='change_password'">
-                    <el-input type="password" :clearable="true" v-model="password" class="login width_100" :placeholder="$t('words.password')"></el-input>
-                    <el-input type="password" :clearable="true" v-model="confirm_password" class="login margin_top_10 width_100" :placeholder="$t('words.confirm_password')"></el-input>
-                </div>
-                <div v-else-if="login_state=='input_password'">
-                    <el-input  type="password" :clearable="true" v-model="password" class="login width_100" :placeholder="$t('words.password')"></el-input>
                 </div>
                 <video-button class="margin_top_20 width_100" :button-text="$t('words.next_step')" @click.native="regist2login"></video-button>
                 <div class="white margin_top_20 text_center">
@@ -104,53 +97,18 @@
             },
             regist2login() {
                 bus.$emit('showLoading', true);
-                if (this.login_state == "change_password") {
-                    if (this.password == "123456") {
-                        this.$msg(this.$t('words.not_123456'), 'error');
-                        bus.$emit('showLoading', false);
-                        return;
-                    }
-                    if (this.password != this.confirm_password) {
-                        this.$msg(this.$t('words.password_not_equally'), 'error');
-                        bus.$emit('showLoading', false);
-                        return;
-                    }
-                }
-                var data = this.login_state == 　"change_password" ? {
-                    old_password: '123456',
-                    new_password: this.password
-                } : {
+                var data =  {
                     username: this.phone,
-                    password: this.password
+                    password: 123456
                 }
-                this.$http(this.login_state === 'change_password' ? 'user/1' : 'login', this.login_state === 'change_password' ? 'patch' : "post", data).then(res => {
-                    if (this.login_state == "change_password") {
-                        this.login_state = "login";
-                        this.regist2login();
-                    } else {
-                        this.saveToken(res.token, this.phone);
-                        if (this.password == '123456') {
-                            this.password = "";
-                            this.login_state = "change_password"
-                        } else {
-                            this.$emit('close');
-                            this.$msg(this.$t('words.login_success'));
-                            bus.$emit("loginSuccess");
-                            localStorage.has_change_password = 1;
-                        }
-                    }
+                this.$http( 'login', "post", data).then(res => {
+                    this.$emit('close');
+                    this.$msg(this.$t('words.login_success'));
+                    bus.$emit("loginSuccess");
                     bus.$emit('showLoading', false);
+                    this.saveToken(res.token, this.phone);
                 }).catch(res => {
-                    if (this.password == "123456") {
-                        this.password = "";
-                        this.login_state = 'input_password';
-                    } else {
-                        if(this.login_state == "change_password"){
-                            this.$msg(this.$t('words.changepassword_error'), 'error')
-                        }else{
-                            this.$msg(this.$t('words.username_or_password_error'), 'error')
-                        }
-                    }
+                    this.$msg(this.$t('words.username_or_password_error'), 'error')
                     bus.$emit('showLoading', false);
                 })
             },
