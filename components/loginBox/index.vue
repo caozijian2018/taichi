@@ -3,7 +3,7 @@
         <div class="width_40 pcs loginbox">
             <i class="iconfont icon-chacha white cancelLogin position_absolute cursor" @click="close"></i>
             <div class="width_65 margin_auto">
-                <div class="display_block margin_bottom_1 font_size_20 text_center white"> {{ login_state == "login" ? $t("words.login") : login_state=="input_password" ? $t('words.input_password') : $t('words.change_password')}}</div>
+                <div class="display_block margin_bottom_1 font_size_20 text_center white"> {{  $t("words.login") }}</div>
                 <div class="">
                     <el-input :clearable="true" v-model="phone" class="login width_100" :placeholder="$t('words.phone_number')"></el-input>
                 </div>
