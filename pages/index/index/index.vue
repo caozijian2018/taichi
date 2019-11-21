@@ -17,10 +17,10 @@
       />
     </div> -->
 
-    <!-- <video-banner
+    <video-banner
       :current-banner="current_banner"
       :style="{ marginTop: op == 'ib' ? '50px' : '0' }"
-    ></video-banner> -->
+    ></video-banner>
     <only-infobip-show></only-infobip-show>
     <!-- <div v-else>
       <category-box @ordering="getOrdering"></category-box>

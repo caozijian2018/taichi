@@ -20,9 +20,9 @@
                     </div>
                 </div>
             </div>
-            <div v-if="arr.length" class="text_center font_size_20 margin_top_50px" style="height:30px;line-height:30px">
+            <!-- <div v-if="arr.length" class="text_center font_size_20 margin_top_50px" style="height:30px;line-height:30px">
                 {{arr[INDEX].name}}
-            </div>
+            </div> -->
             <div class="pc_flex margin_bottom_3">
                 <video-div v-for="item in list" :item="item" :key="item.id"></video-div>
             </div>
@@ -157,6 +157,7 @@
 </script>
 
 <style lang='less'>
+    @import "../../../../assets/css/current_theme.less";
     @grayy: rgba(82, 82, 82, 1.0);
     .taglist_box {
         .margin_top_50px {
@@ -179,7 +180,7 @@
             top: 50px;
             .dsfx {
                 //color:@glore;
-                background: darken(@grayy,10) !important;
+                background: darken(@dark,10) !important;
                 font-weight: 600;
             }
             .ittemstage {
@@ -194,7 +195,7 @@
                 cursor: pointer;
                 position: relative;
                 width: 200px;
-                background: @grayy;
+                background: @dark;
                 color: #fff;
                 font-size: 16px;
             }

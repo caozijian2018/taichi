@@ -352,7 +352,7 @@ export default {
         width: 100%;
         z-index: 10004;
         position: absolute;
-        background: @light_gray;
+        background: #fff;
         transition-duration: 0.4s;
         transition-property: top;
         top: -330px;
