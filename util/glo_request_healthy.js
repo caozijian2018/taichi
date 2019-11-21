@@ -18,7 +18,7 @@ var allRequest = (request_name,methods='get',params={}) => {
   }
   var url =  get_url_from_list ? api_list[request_name] : request_name;
   var params_obj={
-    url:`/backend_healthy/api/${vnum}/`+url,
+    url:`/backend/api/${vnum}/`+url,
     method:methods,
   };
   if(methods=='get'){
