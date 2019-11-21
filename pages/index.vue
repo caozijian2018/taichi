@@ -7,6 +7,7 @@
 <script>
   import Vue from "vue";
   import "../util/glo_request";
+  import "../util/glo_request_healthy";
   import "../util/filter";
   import "../util/msg";
   import "../util/es62es5";

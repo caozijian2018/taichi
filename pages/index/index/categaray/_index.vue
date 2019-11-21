@@ -129,11 +129,7 @@
                 })
             },
             getList() {
-                console.log(this.arr)
-                console.log(this.INDEX)
-                var a = (this.arr[this.INDEX].original_name)
                 this.fullscreenLoading = true;
-                var pg = this.page_
                 this.$http("dcb/album/", "get", {
                     tags: this.arr[this.INDEX].original_name,
                     page: this.page_,
@@ -144,12 +140,21 @@
                 }).then(res => {
                     this.fullscreenLoading = false;
                     this.list = res.results;
-                    console.log("xxxxxx")
-                    console.log(this.list)
                     this.total = res.count;
                     this.page_ = this.$store.getters.getCatePage
                     document.querySelector('.scroll_box').scrollTop="0";
                     this.is_mounted = true;
+                })
+                // 测试太极
+                this.$http_healthy("dcb/album/", "get", {
+                    tags: 'Yoga Video',
+                    page: 1,
+                    category: 'healthy-life-now',
+                    capacity: 12,
+                    ordering: '-show_cnt',
+                    lang: 'en'
+                }).then(res => {
+                    console.log(res)
                 })
             }
         }

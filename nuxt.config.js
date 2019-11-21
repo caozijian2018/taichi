@@ -53,7 +53,13 @@ module.exports = {
     pathRewrite: {
         '^/backend': '/backend'
     }
-}
+  },
+  '/backend_healthy': {
+    target: 'http://healthy-life-now.net',
+    pathRewrite: {
+        '^/backend_healthy': '/backend'
+    }
+  }
 },
 axios: {
   proxy: true,
