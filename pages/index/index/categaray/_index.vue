@@ -130,8 +130,9 @@
             },
             getList() {
                 this.fullscreenLoading = true;
+                var tag =  this.arr[this.INDEX].is_healthy_life ? this.arr[this.INDEX].original_name+"|Tai Chi Video" : this.arr[this.INDEX].original_name;
                 this.$http("dcb/album/", "get", {
-                    tags: this.arr[this.INDEX].original_name+"|Tai Chi Video",
+                    tags: tag,
                     page: this.page_,
                     category: this.category + '|healthy-life-now',
                     capacity: 12,
