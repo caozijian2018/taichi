@@ -327,7 +327,7 @@ export default {
             }
         }
         .head_img {
-            height: 50px;
+            height: 40px;
         }
         .navigator {
             font-size: 24px;
