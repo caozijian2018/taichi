@@ -5,7 +5,8 @@ export default (arr)=>{
     var show_other_tag = store().state.show_tag_list;
     var currentapp=getCurrentApp()
     var tags = []
-    for(var v of arr){
+    for(var i=arr.length;i--;i>0){
+        var v = arr[i]
         if (v.name == currentapp || v.name == "healthy-life-now"){
             if(v.name == "healthy-life-now"){
                 for(var healthy_tag of v.tags){
@@ -13,6 +14,7 @@ export default (arr)=>{
                         healthy_tag.is_healthy_life = true;
                         tags.push(healthy_tag)
                     }
+                    debugger
                 }
             }else{
                 tags = tags.concat(v.tags)
@@ -29,5 +31,6 @@ export default (arr)=>{
             return true
         }
     })
+    debugger
     return filter_tag;
 }
