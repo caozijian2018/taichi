@@ -1,8 +1,10 @@
 import axios from 'axios'
 import Vue from "vue"
+console.log('tttttt')
+console.log(process.env.baseUrlHealthy)
 const service = axios.create({
   timeout: 10000, // request timeout
-  baseURL:process.env.BASE_URL_HEALTHY || 'http://localhost:3026'
+  baseURL:process.env.baseUrlHealthy
 });
 service.interceptors.request.use(config => {
   return config
