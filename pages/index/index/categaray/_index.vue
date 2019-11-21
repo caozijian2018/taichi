@@ -131,9 +131,9 @@
             getList() {
                 this.fullscreenLoading = true;
                 this.$http("dcb/album/", "get", {
-                    tags: this.arr[this.INDEX].original_name,
+                    tags: this.arr[this.INDEX].original_name+"|Tai Chi Video",
                     page: this.page_,
-                    category: this.category ,
+                    category: this.category + '|healthy-life-now',
                     capacity: 12,
                     ordering: '-create_time',
                     lang: this.country
@@ -144,17 +144,6 @@
                     this.page_ = this.$store.getters.getCatePage
                     document.querySelector('.scroll_box').scrollTop="0";
                     this.is_mounted = true;
-                })
-                // 测试太极
-                this.$http_healthy("dcb/album/", "get", {
-                    tags: 'Yoga Video',
-                    page: 1,
-                    category: 'healthy-life-now',
-                    capacity: 12,
-                    ordering: '-show_cnt',
-                    lang: 'en'
-                }).then(res => {
-                    console.log(res)
                 })
             }
         }

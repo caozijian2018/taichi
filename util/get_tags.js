@@ -10,6 +10,7 @@ export default (arr)=>{
             if(v.name == "healthy-life-now"){
                 for(var healthy_tag of v.tags){
                     if(show_other_tag.indexOf(healthy_tag.original_name) > -1){
+                        healthy_tag.is_healthy_life = true;
                         tags.push(healthy_tag)
                     }
                 }
