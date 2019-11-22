@@ -130,12 +130,12 @@
             },
             getList() {
                 this.fullscreenLoading = true;
-                var tag =  this.arr[this.INDEX].is_healthy_life ? this.arr[this.INDEX].original_name+"|Tai Chi Video" : this.arr[this.INDEX].original_name;
-                var category = this.arr[this.INDEX].is_healthy_life ? this.category + '|healthy-life-now' : this.category;
+                // var tag =  this.arr[this.INDEX].is_healthy_life ? this.arr[this.INDEX].original_name+"|Tai Chi Video" : this.arr[this.INDEX].original_name;
+                // var category = this.arr[this.INDEX].is_healthy_life ? this.category + '|healthy-life-now' : this.category;
                 this.$http("dcb/album/", "get", {
-                    tags: tag,
+                    tags: this.arr[this.INDEX].original_name,
                     page: this.page_,
-                    category: category,
+                    category: this.category,
                     capacity: 12,
                     ordering: '-create_time',
                     lang: this.country

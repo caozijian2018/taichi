@@ -14,7 +14,6 @@ export default (arr)=>{
                         healthy_tag.is_healthy_life = true;
                         tags.push(healthy_tag)
                     }
-                    debugger
                 }
             }else{
                 tags = tags.concat(v.tags)
@@ -31,6 +30,5 @@ export default (arr)=>{
             return true
         }
     })
-    debugger
     return filter_tag;
 }
