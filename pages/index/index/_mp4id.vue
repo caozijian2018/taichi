@@ -1,9 +1,9 @@
 <template>
     <div class="width_100">
         <mp4 class="width_100" :mp4-src="mp4_src"></mp4>
-        <!-- <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
+        <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
             {{desc}}
-        </div> -->
+        </div>
         <video-footer></video-footer>
     </div>
 </template>
@@ -58,7 +58,7 @@
             },
             getMp4src() {
                 var mp4id = this.$route.params.mp4id;
-                this.$http(`dcb/album/${mp4id}/`,{lang: getLang()}).then(res => {
+                this.$http(`dcb/album/${mp4id}/`,'get',{lang: getLang()}).then(res => {
                     if (res.resources.length) {
                         var src = res.resources[0];
                         this.mp4_src = getCurrentPrefix() + src;
