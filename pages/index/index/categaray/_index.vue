@@ -195,7 +195,7 @@
                 width: 200px;
                 background: @dark;
                 color: #fff;
-                font-size: 16px;
+                font-size: 12px;
             }
             .taglibox {
                 height: 50px;
