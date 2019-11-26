@@ -99,12 +99,14 @@ export default {
       fullscreenLoading: false,
       category: getCurrentApp(),
       is_mounted:false,
-      op: ""
+      op: "",
+      lang: ""
     };
   },
   mounted() {
     console.log(9999);
     console.log(this.list);
+    this.setLang()
     this.init();
     this.initBanner();
     this.watchHeadOrdering();
@@ -114,6 +116,11 @@ export default {
     this.fromMp4page();
   },
   methods: {
+    setLang(){
+      this.$nextTick(()=>{
+        this.lang = getLang();
+      })
+    },
     init() {
       this.$nextTick(() => {
         this.op = getCountry();
@@ -195,7 +202,7 @@ export default {
         category: this.category,
         capacity,
         search,
-        lang: getLang()
+        lang: this.lang
       })
         .then(res => {
           this.is_mounted = true;
