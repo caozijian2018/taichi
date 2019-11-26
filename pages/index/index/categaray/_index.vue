@@ -96,7 +96,9 @@
                 })
             },
             setLang() {
-                this.country = getLang();
+                this.$nextTick(()=>{
+                    this.country = getLang();
+                })
             },
             moves(e, index, id) {
                 this.page_ = 1;
