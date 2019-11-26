@@ -13,6 +13,8 @@
     import getCountry from "../../../util/get_country"
     import init_token from "../../../util/init_token"
     import bus from "../../../util/bus"
+    import getLang from "../../../util/get_lang"
+
     import getCurrentPrefix from "../../../util/get_current_prefix"
     import videoFooter from "../../../components/footer";
     export default {
@@ -56,7 +58,7 @@
             },
             getMp4src() {
                 var mp4id = this.$route.params.mp4id;
-                this.$http(`dcb/album/${mp4id}/`).then(res => {
+                this.$http(`dcb/album/${mp4id}/`,{lang: getLang()}).then(res => {
                     if (res.resources.length) {
                         var src = res.resources[0];
                         this.mp4_src = getCurrentPrefix() + src;
