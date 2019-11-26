@@ -12,8 +12,8 @@
         <div>
             <div class="width_100 photntsback" :class="{top0: isScrollBottom}">
                 <div class="phtonsbase overflow_scroll nscrol" id="sdcss">
-                    <div :style="{width:arr.length * (pcOrPhone?300:150)+'px'}" class="taglibox">
-                        <div :class="{dsfx:index==INDEX}" :style="{width:(pcOrPhone ? 300 : 150)+'px'}" style="border-left:1px solid #fff" v-for="(item,index) in arr" @click="moves($event,index,item.id)" class="box_szing float_left text_center ittemstage" :key="item.id">
+                    <div :style="{width:arr.length * (pcOrPhone?300:155)+'px'}" class="taglibox">
+                        <div :class="{dsfx:index==INDEX}" :style="{width:(pcOrPhone ? 300 : 155)+'px'}" style="border-left:1px solid #fff" v-for="(item,index) in arr" @click="moves($event,index,item.id)" class="box_szing float_left text_center ittemstage" :key="item.id">
                             {{item.name}}
                             <div class="cate_border_bottom" :class="{selected_cate :  select_index == index}"></div>
                         </div>
