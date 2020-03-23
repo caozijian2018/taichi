@@ -1,6 +1,6 @@
 <template>
     <div class="width_100">
-        <mp4 class="width_100" :mp4-src="mp4_src"></mp4>
+        <mp4 class="width_100" :mp4-src="mp4_src+'?AuthInfo='+$store.state.file_token"></mp4>
         <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
             {{desc}}
         </div>

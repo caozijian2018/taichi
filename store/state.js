@@ -5,5 +5,6 @@ export default {
   platform_no_phone: false,
   search_word: "",
   cate_page: 1,
-  show_tag_list:["Tai Chi Video", "Relax Video", "Outdoors Video", "Man Video", "Woman Video"]
+  show_tag_list:["Tai Chi Video", "Relax Video", "Outdoors Video", "Man Video", "Woman Video"],
+  file_token: ""
 }

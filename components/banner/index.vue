@@ -2,7 +2,7 @@
     <div>
         <el-carousel :height="banner_height" :interval="5000" :type="pc_banner" arrow="always">
             <el-carousel-item @click.native="jumpBanner(item.jump_url)" v-for="item in currentBanner.banner" :key="item.id">
-                <img :src="item.img_url" alt="" class="width_100">
+                <img :src="item.img_url+'?AuthInfo='+$store.state.file_token" alt="" class="width_100">
             </el-carousel-item>
         </el-carousel>
     </div>

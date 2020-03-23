@@ -3,7 +3,7 @@
         <div class="hover_img position_relative text_center margin_bottom-1 overflow_hidden" :style="{height:boxheight+'px'}">
             <i class="pcs iconfont icon-weibiaoti1 white play pc_none"></i>
             <div class="width_100 height_100 img_box">
-                <img @load="loadImg($event)" :src="prefix + item.cover" class="pcs video_img_box" style="" alt="">
+                <img @load="loadImg($event)" :src="prefix + item.cover +'?AuthInfo='+$store.state.file_token" class="pcs video_img_box" style="" alt="">
             </div>
             <div class="hoverdiv mp4hover">
                 <div class="white pcs">

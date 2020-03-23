@@ -1,7 +1,7 @@
 <template>
     <div class="video_box video_padding_1 box_szing" @click="watchMovie">
         <div class="position_relative">
-            <img :src="imgSrc" class="width_100" v-show="img_loaded" alt="" @load="img_loaded=true" srcset="">
+            <img :src="imgSrc+'?AuthInfo='+$store.state.file_token" class="width_100" v-show="img_loaded" alt="" @load="img_loaded=true" srcset="">
             <img src="../../static/img/timg.gif" v-if="!img_loaded" class="width_100" alt="">
             <!-- <div class="position_absolute   white time_box">
                 {{item.video_duration | secendToTime}}
