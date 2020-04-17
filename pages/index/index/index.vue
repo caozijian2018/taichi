@@ -64,7 +64,9 @@ export default {
         page,
         lang
       }),
-      glo_axios("dcb/site/", "get", {})
+      glo_axios("dcb/site/", "get", {
+        capacity: 100
+      })
     ])
       .then(res => {
         console.log("xxxxxxx");
