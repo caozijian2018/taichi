@@ -4,7 +4,7 @@
         <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
             {{desc}}
         </div>
-        <video-footer></video-footer>
+        <video-footer v-if="!hide_footer"></video-footer>
     </div>
 </template>
 <script>
@@ -14,7 +14,6 @@
     import init_token from "../../../util/init_token"
     import bus from "../../../util/bus"
     import getLang from "../../../util/get_lang"
-
     import getCurrentPrefix from "../../../util/get_current_prefix"
     import videoFooter from "../../../components/footer";
     export default {
@@ -26,11 +25,12 @@
             return {
                 mp4_src: '',
                 op: "",
-                desc: ""
+                desc: "",
+                hide_footer: false
             }
         },
         mounted() {
-            var is_need_login = this.$route.query.type;
+            var is_need_login = this.hide_footer = this.$route.query.type;
             if(is_need_login){
                 this.getMp4src()
             }else{
