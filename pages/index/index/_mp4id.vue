@@ -1,7 +1,7 @@
 <template>
     <div class="width_100">
         <mp4 class="width_100" :mp4-src="mp4_src+'?AuthInfo='+$store.state.file_token"></mp4>
-        <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
+        <div v-if="!hide_footer" class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
             {{desc}}
         </div>
         <video-footer v-if="!hide_footer"></video-footer>
