@@ -19,7 +19,7 @@
                 {{item.title}}
             </div>
             <div class="box_footer display_flex flex_align_center  margin_top_10">
-                <i class="iconfont icon-shijian1"></i> {{item.created | yearMonthDay}}
+                <i class="iconfont icon-shijian1"></i> {{getrandomTime(item.id)}}
                 <i class="padding_left_1 iconfont icon-chakanguo" style="font-size:22px"></i> {{(item.show_cnt | parseInt(Math.random()*100)) + 1068}}
                 <i class="padding_left_1 iconfont icon-star_full"></i> {{item.id}}
             </div>
@@ -62,6 +62,13 @@
             }
         },
         methods: {
+            getrandomTime(id){
+               var random_arr_time = [133, 266, 302, 501, 371, 405, 319, 352, 94, 525, 193, 154, 77, 499, 88, 254, 62, 157, 251, 458, 238, 368, 70, 146, 537, 141, 242, 114, 350, 478, 65, 316, 175, 61, 261, 504, 340, 442, 374, 531, 135, 376, 78, 75, 179, 301, 214, 473, 400, 241, 222, 396, 194, 109, 195, 393, 435, 205, 170, 231, 210, 356, 253, 325, 339, 147, 321, 308, 521, 257, 203, 142, 450, 511, 282, 288, 100, 438, 127, 192]
+               var index = id % random_arr_time.length;
+               var seconds = new Date().getTime() - random_arr_time[index]*24*60*60*1000
+               var new_date  = new Date(seconds).getFullYear() +'-'+  (new Date(seconds).getMonth()+1) +'-'+  new Date(seconds).getDate();
+               return new_date;
+            },
             goWatchMp4(id) {
                 this.$router.push({
                     path: "/" + id
