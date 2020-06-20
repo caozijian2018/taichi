@@ -8,7 +8,7 @@
                         @click="goHome"
                         class="cursor head_img padding_left_1"
                         alt
-                    /> -->
+                    />-->
                     <img
                         src="../../static/img/logo.png"
                         @click="goHome"
@@ -35,6 +35,7 @@
                             ></div>
                             <span class="pcs">{{$t('words.home')}}</span>
                         </div>
+
                         <div
                             class="cate_div"
                             v-if="show_login_button"
@@ -65,7 +66,11 @@
                 </div>
                 <div class="head_icon display_flex">
                     <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
-                    <div class="option_animate display_flex flex_align_center" :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}" @click.stop="showWichbox('option')">
+                    <div
+                        class="option_animate display_flex flex_align_center"
+                        :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}"
+                        @click.stop="showWichbox('option')"
+                    >
                         <div class="display_flex line_box flex_jusify_space flex_column">
                             <div class="first"></div>
                             <div class="secend"></div>
@@ -91,7 +96,7 @@
                     @click.native="Introduction('/intro?type=yoga')"
                     class="margin_top_1"
                 ></video-button>
-                
+
                 <video-button
                     v-if="show_login_button"
                     :button-text="$t('words.login')"
@@ -104,6 +109,19 @@
                     @click.native="unLogin()"
                     class="margin_top_1"
                 ></video-button>
+                <el-switch
+                v-model="is_ar"
+                @click.native="changeLang()"
+                v-if="op=='mt'"
+                active-text="EN"
+                inactive-text="AR">
+                </el-switch>
+                <!-- <el-select
+                    placeholder="lang"
+                    v-model="lang"
+                >
+                    <el-option v-for="item in lang_arr" :key="item" :value="item" :label="item"></el-option>
+                </el-select> -->
             </div>
         </div>
         <div class="search_box" :class="{select:showWhich=='search'}">
@@ -128,6 +146,10 @@
 <script>
 import videoButton from "../button";
 import getCountry from "../../util/get_country";
+import initLanguage from "../../util/init_language";
+import getLang from "../../util/get_lang";
+
+
 import bus from "../../util/bus";
 import unlogin from "../../util/unlogin";
 import getOp from "../../util/get_country";
@@ -135,6 +157,7 @@ import getOp from "../../util/get_country";
 export default {
     data() {
         return {
+            is_ar: true,
             search_word: "",
             clickSelect: "",
             selectOrder: "",
@@ -164,13 +187,21 @@ export default {
     mounted() {
         this.getOp();
         this.watchBus();
+        this.$nextTick(()=>{
+            this.is_ar = getLang() == 'en' ? true : false;
+        })
     },
     methods: {
-        Introduction(url){
+        changeLang(){
+            var lang = this.is_ar ? 'en' : 'ar';
+            initLanguage(lang);
+            location.href = "./?lang=" + lang;
+        },
+        Introduction(url) {
             this.showWhich = "";
             this.$router.push({
                 path: url
-            })
+            });
         },
         watchBus() {
             bus.$on("loginSuccess", () => {
@@ -255,7 +286,11 @@ export default {
 
 <style lang='less'>
 @import "../../assets/css/current_theme";
+.el-select-dropdown{
+        z-index: 20000 !important;
+    }
 .bigbox {
+    
     overflow: hidden;
     height: 50px;
     &.height0 {

@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Vue from "vue"
-console.log('tttttt')
 console.log(process.env.baseUrlHealthy)
 const service = axios.create({
   timeout: 10000, // request timeout

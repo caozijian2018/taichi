@@ -8,6 +8,7 @@ export default (lang_) => {
     } else {
       lang = localStorage.lang;
     }
+    debugger
     store().commit('setLang', lang);
     // alert(store().state.locale)
     // alert(store().getters.getLang+"getlangggg");
