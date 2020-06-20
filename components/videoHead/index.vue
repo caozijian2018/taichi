@@ -64,17 +64,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="head_icon display_flex">
-                    <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
-                    <div
-                        class="option_animate display_flex flex_align_center"
-                        :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}"
-                        @click.stop="showWichbox('option')"
-                    >
-                        <div class="display_flex line_box flex_jusify_space flex_column">
-                            <div class="first"></div>
-                            <div class="secend"></div>
-                            <div class="last"></div>
+                <div>
+                    <el-switch
+                    v-model="is_ar"
+                    @click.native="changeLang()"
+                    v-if="op=='mt'"
+                    active-text="EN"
+                    inactive-text="AR">
+                    </el-switch>
+                    <div class="head_icon display_flex">
+                        <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
+                        <div
+                            class="option_animate display_flex flex_align_center"
+                            :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}"
+                            @click.stop="showWichbox('option')"
+                        >
+                            <div class="display_flex line_box flex_jusify_space flex_column">
+                                <div class="first"></div>
+                                <div class="secend"></div>
+                                <div class="last"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,13 +119,13 @@
                     class="margin_top_1"
                 ></video-button>
                 <div class="text_center margin_top_10">
-                    <el-switch
+                    <!-- <el-switch
                     v-model="is_ar"
                     @click.native="changeLang()"
                     v-if="op=='mt'"
                     active-text="EN"
                     inactive-text="AR">
-                    </el-switch>
+                    </el-switch> -->
                 </div>
 
                 <!-- <el-select
