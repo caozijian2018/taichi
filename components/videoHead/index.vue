@@ -64,13 +64,13 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="display_flex flex_align_center">
                     <el-switch
-                    v-model="is_ar"
-                    @click.native="changeLang()"
-                    v-if="op=='mt'"
-                    active-text="EN"
-                    inactive-text="AR">
+                        v-model="is_ar"
+                        @click.native="changeLang()"
+                        v-if="op=='mt'"
+                        active-text="EN"
+                        inactive-text="AR">
                     </el-switch>
                     <div class="head_icon display_flex">
                         <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
