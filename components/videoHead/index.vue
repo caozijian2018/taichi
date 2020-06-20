@@ -109,13 +109,16 @@
                     @click.native="unLogin()"
                     class="margin_top_1"
                 ></video-button>
-                <el-switch
-                v-model="is_ar"
-                @click.native="changeLang()"
-                v-if="op=='mt'"
-                active-text="EN"
-                inactive-text="AR">
-                </el-switch>
+                <div class="text_center margin_top_10">
+                    <el-switch
+                    v-model="is_ar"
+                    @click.native="changeLang()"
+                    v-if="op=='mt'"
+                    active-text="EN"
+                    inactive-text="AR">
+                    </el-switch>
+                </div>
+
                 <!-- <el-select
                     placeholder="lang"
                     v-model="lang"
