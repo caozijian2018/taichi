@@ -165,9 +165,7 @@ export default {
                     init_token();
                 })
                 .finally(() => {
-                    var new_url = location.href.replace(/[?&]phone=\d*/, "");
-                    new_url = new_url.replace(/[?&]from=\w*/, "");
-                    location.href = new_url;
+                    location.href = "/";
                 });
         },
         getSearch() {
