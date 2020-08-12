@@ -214,14 +214,15 @@ export default {
         },
         watchBus() {
             bus.$on("loginSuccess", () => {
-                this.diffrentOp();
-                history.go(0)
+                // this.diffrentOp();
+                // history.go(0)
             });
         },
         unLogin() {
             unlogin();
-            this.diffrentOp();
             this.$msg(this.$t("words.unlogin_success"));
+            this.$router.push({path: "/"})
+            location.href = "/"
         },
         diffrentOp() {
             switch (this.op) {
