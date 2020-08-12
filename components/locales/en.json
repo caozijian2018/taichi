@@ -1,5 +1,7 @@
 {
   "words": {
+    "unlogin": "sign out",
+    "account": "Account",
     "most_recent": "Most Recent",
     "most_viewed": " Most Viewed",
     "most_liked": "Most Liked",

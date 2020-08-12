@@ -106,6 +106,12 @@
                     this.$msg(this.$t('words.login_success'));
                     bus.$emit("loginSuccess");
                     bus.$emit('showLoading', false);
+                    localStorage.video_token = res.token;
+                    localStorage.phone = phone;
+                    localStorage.from_ = from_;
+                    localStorage.user_id = res.user.id;
+                    localStorage.vip_expiration = res.user.vip_expiration;
+                    localStorage.create_time = res.user.create_time;
                     this.saveToken(res.token, this.phone);
                 }).catch(res => {
                     this.$msg(this.$t('words.username_or_password_error'), 'error')

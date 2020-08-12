@@ -3,12 +3,6 @@
         <div class="head_box">
             <div class="display_flex head_innerbox flex_jusify_space">
                 <div class="display_flex flex_align_center">
-                    <!-- <img
-                        src="../../static/img/people.png"
-                        @click="goHome"
-                        class="cursor head_img padding_left_1"
-                        alt
-                    />-->
                     <img
                         src="../../static/img/logo.png"
                         @click="goHome"
@@ -16,13 +10,6 @@
                         alt
                     />
                     <div class="display_flex flex_align_center classfication_pc">
-                        <!-- <div v-if="false" @mouseover="orderselect(item.id)" @mouseleave="selectOrder=''" v-for="item in arr" @click="getList(item.id,'pc')" :key="item.id">
-                                                    <div class="hover_cate_back" :class="{hover_cate_back_select:clickSelect==item.id||selectOrder==item.id}">
-                                                    </div>
-                                                    <span class="pcs">
-                                                        {{item.name}}
-                                                    </span>
-                        </div>-->
                         <div
                             class="cate_div"
                             @mouseover="orderselect('to_cate')"
@@ -35,10 +22,9 @@
                             ></div>
                             <span class="pcs">{{$t('words.home')}}</span>
                         </div>
-
                         <div
                             class="cate_div"
-                            v-if="show_login_button"
+                            v-if="!has_login"
                             @mouseover="orderselect('login')"
                             @click="showLogin()"
                             @mouseleave="selectOrder=''"
@@ -51,16 +37,16 @@
                         </div>
                         <div
                             class="cate_div"
-                            v-if="show_unlogin_button"
-                            @mouseover="orderselect('login')"
-                            @click="unLogin()"
+                            v-if="has_login"
+                            @mouseover="orderselect('account')"
+                            @click="toAcount()"
                             @mouseleave="selectOrder=''"
                         >
                             <div
                                 class="hover_cate_back cataback"
-                                :class="{hover_cate_back_select:selectOrder=='login'}"
+                                :class="{hover_cate_back_select:selectOrder=='account'}"
                             ></div>
-                            <span class="pcs">{{$t('words.unlogin')}}</span>
+                            <span class="pcs">{{$t('words.account')}}</span>
                         </div>
                     </div>
                 </div>
@@ -70,8 +56,8 @@
                         @click.native="changeLang()"
                         v-if="op=='mt'"
                         active-text="EN"
-                        inactive-text="AR">
-                    </el-switch>
+                        inactive-text="AR"
+                    ></el-switch>
                     <div class="head_icon display_flex">
                         <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
                         <div
@@ -107,15 +93,21 @@
                 ></video-button>
 
                 <video-button
-                    v-if="show_login_button"
+                    v-if="!has_login"
                     :button-text="$t('words.login')"
                     @click.native="showLogin()"
                     class="margin_top_1"
                 ></video-button>
                 <video-button
-                    v-if="show_unlogin_button"
+                    v-if="has_login"
                     :button-text="$t('words.unlogin')"
                     @click.native="unLogin()"
+                    class="margin_top_1"
+                ></video-button>
+                <video-button
+                    v-if="has_login"
+                    :button-text="$t('words.account')"
+                    @click.native="toAcount()"
                     class="margin_top_1"
                 ></video-button>
                 <div class="text_center margin_top_10">
@@ -125,7 +117,7 @@
                     v-if="op=='mt'"
                     active-text="EN"
                     inactive-text="AR">
-                    </el-switch> -->
+                    </el-switch>-->
                 </div>
 
                 <!-- <el-select
@@ -133,7 +125,7 @@
                     v-model="lang"
                 >
                     <el-option v-for="item in lang_arr" :key="item" :value="item" :label="item"></el-option>
-                </el-select> -->
+                </el-select>-->
             </div>
         </div>
         <div class="search_box" :class="{select:showWhich=='search'}">
@@ -160,7 +152,7 @@ import videoButton from "../button";
 import getCountry from "../../util/get_country";
 import initLanguage from "../../util/init_language";
 import getLang from "../../util/get_lang";
-
+import has_login from "../../util/has_login";
 
 import bus from "../../util/bus";
 import unlogin from "../../util/unlogin";
@@ -169,6 +161,7 @@ import getOp from "../../util/get_country";
 export default {
     data() {
         return {
+            has_login: false,
             is_ar: true,
             search_word: "",
             clickSelect: "",
@@ -180,44 +173,49 @@ export default {
             arr: [
                 {
                     name: this.$t("words.most_recent"),
-                    id: "-create_time"
+                    id: "-create_time",
                 },
                 {
                     name: this.$t("words.most_liked"),
-                    id: "-favor_num"
+                    id: "-favor_num",
                 },
                 {
                     name: this.$t("words.most_viewed"),
-                    id: "-show_num"
-                }
-            ]
+                    id: "-show_num",
+                },
+            ],
         };
     },
     components: {
-        videoButton
+        videoButton,
     },
     mounted() {
         this.getOp();
         this.watchBus();
-        this.$nextTick(()=>{
-            this.is_ar = getLang() == 'en' ? true : false;
-        })
+        this.$nextTick(() => {
+            this.has_login = has_login();
+            this.is_ar = getLang() == "en" ? true : false;
+        });
     },
     methods: {
-        changeLang(){
-            var lang = this.is_ar ? 'en' : 'ar';
+        toAcount() {
+            this.$router.push({ path: "/account" });
+        },
+        changeLang() {
+            var lang = this.is_ar ? "en" : "ar";
             initLanguage(lang);
             location.href = "./?lang=" + lang;
         },
         Introduction(url) {
             this.showWhich = "";
             this.$router.push({
-                path: url
+                path: url,
             });
         },
         watchBus() {
             bus.$on("loginSuccess", () => {
                 this.diffrentOp();
+                history.go(0)
             });
         },
         unLogin() {
@@ -227,6 +225,12 @@ export default {
         },
         diffrentOp() {
             switch (this.op) {
+                case "kw":
+                    (() => {
+                        this.show_login_button = !this.has_login;
+                        this.show_unlogin_button = this.has_login;
+                    })();
+                    break;
                 default:
                     (() => {
                         this.show_login_button = false;
@@ -247,12 +251,12 @@ export default {
             this.$store.commit("search", this.search_word);
             this.search_word = "";
             this.$router.push({
-                path: "/"
+                path: "/",
             });
         },
         goHome() {
             this.$router.push({
-                path: "/"
+                path: "/",
             });
         },
         showLogin() {
@@ -261,7 +265,7 @@ export default {
         toCate() {
             this.showWhich = "";
             this.$router.push({
-                name: "index-index-categaray"
+                name: "index-index-categaray",
             });
         },
         orderselect(ordering) {
@@ -277,7 +281,7 @@ export default {
             }
             if (this.$route.name != "index-index") {
                 this.$router.push({
-                    name: "index-index"
+                    name: "index-index",
                 });
             }
             bus.$emit("ordering", ordering);
@@ -291,18 +295,17 @@ export default {
             } else {
                 this.showWhich = type == this.showWhich ? "" : type;
             }
-        }
-    }
+        },
+    },
 };
 </script>
 
 <style lang='less'>
 @import "../../assets/css/current_theme";
-.el-select-dropdown{
-        z-index: 20000 !important;
-    }
+.el-select-dropdown {
+    z-index: 20000 !important;
+}
 .bigbox {
-    
     overflow: hidden;
     height: 50px;
     &.height0 {
