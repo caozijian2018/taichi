@@ -72,7 +72,7 @@ export default {
     methods: {
         cancel() {
             // /kwnth/sub/cancel/
-            this.$http("/kwmt2/unsubscribe/", "post", {
+            this.$http("kwmt2/unsubscribe/", "post", {
                 userid: localStorage.user_id,
                 msisdn: this.phone
             }).then(res => {
