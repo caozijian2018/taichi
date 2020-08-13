@@ -14,10 +14,6 @@
                         <img src="../../../static/img/logo.png" style="width: 200px;" alt />
                     </div>
                     <div id="bbox" class="width_90 margin_auto">
-                        <div class="display_flex" v-if="op=='kw'">
-                            <div class="item_tb">Price</div>
-                            <div class="item_tb">150</div>
-                        </div>
                         <div class="display_flex">
                             <div class="item_tb">Phone number</div>
                             <div class="item_tb">{{phone}}</div>
