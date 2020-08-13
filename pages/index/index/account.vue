@@ -39,7 +39,7 @@
                             <div class="item_tb">{{getVip_expiration()}}</div>
                         </div>
                     </div>
-                    <a class="display_block buttonss" @click="cancel()" v-if="op=='kw'">Unsubscribe</a>
+                    <a class="display_block buttonss" @click="cancel()" v-if="op=='kw'&&has_login">Unsubscribe</a>
                 </div>
             </div>
         </div>
@@ -58,6 +58,7 @@ export default {
             vip_expiration: "",
             create_time: "",
             sub_id: "",
+            has_login: false
         };
     },
     mounted() {
@@ -118,6 +119,7 @@ export default {
                 .then(res => {
                     this.vip_expiration = res.user.vip_expiration
                     this.create_time = res.user.create_time;
+                    this.has_login = true;
                     localStorage.video_token = res.token;
                     localStorage.user_id = res.user.id;
                     init_token();
