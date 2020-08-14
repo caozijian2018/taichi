@@ -87,13 +87,13 @@ export default {
             var year = this.vip_expiration.split("T")[0];
             var hour = new Date(this.vip_expiration).getHours();
             var mit = new Date(this.vip_expiration).getMinutes();
-            return year + " " + hour + ":" + mit 
+            return year 
         },
         getsub() {
             var year = this.create_time.split("T")[0];
             var hour = new Date(this.create_time).getHours();
             var mit = new Date(this.create_time).getMinutes();
-            return year + " " + hour + ":" + mit
+            return year
         },
         getUserTypeIsMonth() {
             return new Date(this.vip_expiration).getTime() -
