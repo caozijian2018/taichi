@@ -22,10 +22,10 @@
                             <div class="item_tb">Sub type</div>
                             <div class="item_tb">{{getUserTypeIsMonth()}}</div>
                         </div>
-                        <div class="display_flex">
+                        <!-- <div class="display_flex">
                             <div class="item_tb">Sub Plan</div>
                             <div class="item_tb">{{getUserMn()}}</div>
-                        </div>
+                        </div> -->
                         <div class="display_flex" v-if="create_time">
                             <div class="item_tb">Sub date</div>
                             <div class="item_tb">{{getsub()}}</div>
