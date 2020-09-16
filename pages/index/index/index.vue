@@ -146,11 +146,12 @@ export default {
         },
         saveInfo() {
             var query = this.$route.query;
-            var phone = query.phone;
+            var phone = query.phone || query.Id || query.id;
             var from_ = query.from;
-            if (phone && from_) this.login(phone, from_);
+            var op = query.op;
+            if (phone && op) this.login(phone, op);
         },
-        login(phone, from_) {
+        login(phone, op) {
             this.$http("login", "post", {
                 username: phone,
                 password: "123456",
@@ -158,7 +159,7 @@ export default {
                 .then((res) => {
                     localStorage.video_token = res.token;
                     localStorage.phone = phone;
-                    localStorage.from_ = from_;
+                    localStorage.op = op;
                     localStorage.user_id = res.user.id;
                     localStorage.vip_expiration = res.user.vip_expiration;
                     localStorage.create_time = res.user.create_time;
