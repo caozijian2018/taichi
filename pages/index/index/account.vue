@@ -86,6 +86,7 @@ export default {
                     this.$msg("unsubscribe Success")
                     setTimeout(()=>{
                         localStorage.phone = ''
+                        localStorage.video_token = ''
                         location.href = "./"
                     },3000)
                 }else{
