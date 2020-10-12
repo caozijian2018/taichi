@@ -81,11 +81,17 @@ export default {
                 userid: localStorage.user_id,
                 msisdn: this.phone
             }).then(res => {
+                
                 if(res.code == 0){
                     this.$msg("unsubscribe Success")
+                    setTimeout(()=>{
+                        localStorage.phone = ''
+                        location.href = "./"
+                    },3000)
                 }else{
                     this.$msg("unsubscribe Faild")
                 }
+                
             });
         },
         getVip_expiration() {
