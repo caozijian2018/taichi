@@ -20,11 +20,11 @@
                             <div class="item_tb">Taichi Lifestyle</div>
                         </div>
                         <div class="display_flex">
-                            <div class="item_tb">Phone number</div>
+                            <div class="item_tb">MSISDN Number</div>
                             <div class="item_tb">{{phone}}</div>
                         </div>
                         <div class="display_flex">
-                            <div class="item_tb">Sub type</div>
+                            <div class="item_tb">Applied plan</div>
                             <div class="item_tb">{{getUserTypeIsMonth()}}</div>
                         </div>
                         <!-- <div class="display_flex">
@@ -32,15 +32,15 @@
                             <div class="item_tb">{{getUserMn()}}</div>
                         </div> -->
                         <div class="display_flex" v-if="create_time">
-                            <div class="item_tb">Sub date</div>
+                            <div class="item_tb">Subscription date</div>
                             <div class="item_tb">{{getsub()}}</div>
                         </div>
                         <div class="display_flex" v-if="vip_expiration">
-                            <div class="item_tb">Sub expiry date</div>
+                            <div class="item_tb">Expiry date</div>
                             <div class="item_tb">{{getVip_expiration()}}</div>
                         </div>
                         <div class="display_flex"  v-if="vip_expiration">
-                            <div class="item_tb">Next Renewal date</div>
+                            <div class="item_tb">Next renewals date</div>
                             <div class="item_tb">{{getVip_expiration()}}</div>
                         </div>
                     </div>
