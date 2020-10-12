@@ -76,14 +76,14 @@
             getLpUrl() {
                 var url;
                 switch (this.platform) {
-                    case "tw":
+                    case "kw":
                         (() => {
-                            url = 'http://static.humorboom.com/tw/tw1/x-lp-funny.html?temp='+this.temp2;
+                            url = 'http://static.taichi-lifestyle.com/ae2/lp.html';
                         })();
                         break;
                     default:
                         (() => {
-                            url = 'http://static.humorboom.com/' + this.platform + '/lp.html';
+                            url = 'http://static.taichi-lifestyle.com/ae2/lp.html';
                         })();
                         break;
                 }
